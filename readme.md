@@ -18,12 +18,12 @@ scream_cli help
 
 
 # Configure Your Settings
-Enter the `scream_cli configure-all` command and follow the cli prompts:
+Enter the `scream_cli configure-settings` command and follow the cli prompts:
 ```
-scream_cli ca
+scream_cli cs
 ```
 
 # Pull the data
 ```
-scream_cli get-data
+scream_cli gd
 ```
