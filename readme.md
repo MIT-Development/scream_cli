@@ -3,7 +3,7 @@ You can install the scream_cli after getting ssh repository access from a reposi
 
 - To install the scream_cli, run the following command:
   ```
-  bash <(curl -s https://github.mit.edu/raw/conmak/scream_cli/master/install.sh)
+  bash <(curl -s https://raw.githubusercontent.com/MIT-Development/scream_cli/main/install.sh)
   ```
 
 - Verify your installation with:

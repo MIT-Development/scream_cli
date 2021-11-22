@@ -9,7 +9,7 @@ readonly CLI_NAME="Scream CLI"
 readonly CLI_COMMAND="scream_cli"
 readonly CLI_VERSION="0.0.1"
 readonly BIN_DIR="/usr/local/bin"
-readonly SSH_CLONE_URL="https://github.mit.edu/conmak/scream_cli.git"
+readonly SSH_CLONE_URL="https://github.com/MIT-Development/scream_cli"
 
 err() { # Display an error message
   printf "$0: $1\n" >&2
