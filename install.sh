@@ -9,7 +9,8 @@ readonly CLI_NAME="Scream CLI"
 readonly CLI_COMMAND="scream_cli"
 readonly CLI_VERSION="0.0.1"
 readonly BIN_DIR="/usr/local/bin"
-readonly SSH_CLONE_URL="https://github.com/MIT-Development/scream_cli"
+readonly SSH_CLONE_URL="git@github.com:MIT-Development/scream_cli"
+readonly HTTP_CLONE_URL="https://github.com/MIT-Development/scream_cli"
 
 err() { # Display an error message
   printf "$0: $1\n" >&2
@@ -48,7 +49,11 @@ check_python3() { # Validate git is installed
   if [ "$(virtualenv --version)" = "" ]; then
     printf "${CHARS_LINE}\n"
     printf "Python virtualenv missing. Adding virtualenv..."
-    pip3 install virtualenv
+    if [[ $SYS_OS = "Mac" ]]; then
+      pip3 install virtualenv --user
+    else
+      pip3 install virtualenv
+    fi
     printf "done\n"
   fi
 }
@@ -99,7 +104,11 @@ install_new() { # Copy the needed files locally
   printf "Creating application folder at '${CLI_PATH}'..."
   mkdir -p "${CLI_PATH}"
   printf "done\n"
-  CLONE_URL=$SSH_CLONE_URL
+  if [[ "$1" = "--dev" ]]; then
+    CLONE_URL=$SSH_CLONE_URL
+  else
+    CLONE_URL=$HTTP_CLONE_URL
+  fi
   printf "Cloning from '${CLONE_URL}':\n"
   git clone ${CLONE_URL} \
     ${CLONE_OPTS} \
